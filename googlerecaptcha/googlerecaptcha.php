@@ -15,7 +15,7 @@ defined('_JEXEC') or die;
  * @package     Google Recaptcha
  * @since       2.5
  */
-class plgCaptchagooglerecaptcha extends JPlugin
+class plgCaptchaGoogleRecaptcha extends JPlugin
 {
 	const GOOGLE_RECAPTCHA_API_SERVER = "http://www.google.com/recaptcha/api.js";
 	const GOOGLE_RECAPTCHA_API_SECURE_SERVER = "https://www.google.com/recaptcha/api.js";
@@ -112,7 +112,7 @@ class plgCaptchagooglerecaptcha extends JPlugin
 		// Check for Private Key
 		if (empty($privatekey))
 		{
-			$this->_subject->setError(JText::_('PLG_GOOGLE_RECAPTCHA_ERROR_NO_PRIVATE_KEY'));
+			$this->_subject->setError(JText::_('PLG_GOOGLE_RECAPTCHA_ERROR_NO_SECRET_KEY'));
 
 			return false;
 		}
@@ -136,7 +136,7 @@ class plgCaptchagooglerecaptcha extends JPlugin
 			return true;
 		}
 		
-		$error_msg="Please re-enter your reCAPTCHA.";
+		$error_msg="PLG_GOOGLE_RECAPTCHA_REENTER";
 		
 		if ( isset($response['error_code']) && isset(self::$error_code[$response['error_code']]) ) {
 			$error_msg = self::$error_code[$response['error_code']];
@@ -147,7 +147,13 @@ class plgCaptchagooglerecaptcha extends JPlugin
 		return false;
 	}
 	
-	
+	/**
+	 * 
+	 * Invoke to fetch data from url
+	 * 
+	 * @param unknown_type $url
+	 * 
+	 */
 	function getCurlData($url)
 	{
 		$curl = curl_init();

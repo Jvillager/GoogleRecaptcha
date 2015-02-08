@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="captcha">
-	<name>plg_captcha_googlerecaptcha</name>
+	<name>Google-Recaptcha</name>
 	<version>1.0.0</version>
 	<creationDate>Feb 2015</creationDate>
 	<author>JVillager</author>
-	<authorEmail>admin@jvillager.in</authorEmail>
-	<authorUrl>www.jvillager.in</authorUrl>
+	<authorEmail>iJvillager@gmail.com</authorEmail>
+	
 	<copyright>Copyright (C) 2005 - 2014 JVillager.in. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<description>PLG_CAPTCHA_GOOGLE_RECAPTCHA_XML_DESCRIPTION</description>
+	
 	<files>
+	
 		<filename
-			plugin="googlerecaptcha">googlerecaptcha.php</filename>
+			plugin="googlerecaptcha">googlerecaptcha.php
+		</filename>
+		<filename>install.script.php</filename>
+	
 	</files>
+	
+	<languages>
+		<language tag="en-GB">languages/en-GB.plg_captcha_googlerecaptcha.ini</language>
+	</languages>
+	
+	
+	
 	<config>
 	<fields name="params">
 		<fieldset name="basic">
@@ -20,7 +32,7 @@
 			name="site_key"
 			type="text"
 			default=""
-			label="PLG_GOOGLE_RECAPTCHA_PUBLIC_KEY_LABEL"
+			label="PLG_GOOGLE_RECAPTCHA_SITE_KEY_LABEL"
 			description="PLG_GOOGLE_RECAPTCHA_SITE_KEY_DESC"
 			required="true"
 			filter="string"
@@ -30,7 +42,7 @@
 			name="secret_key"
 			type="text"
 			default=""
-			label="PLG_GOOGLE_RECAPTCHA_PRIVATE_KEY_LABEL"
+			label="PLG_GOOGLE_RECAPTCHA_SECRET_KEY_LABEL"
 			description="PLG_GOOGLE_RECAPTCHA_SECRET_KEY_DESC"
 			required="true"
 			filter="string"
